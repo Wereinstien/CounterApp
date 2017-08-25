@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/List_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/List_Count"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/List_Count"
+        android:layout_toStartOf="@+id/List_Count"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/List_Count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/Delete"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/Delete"
+        android:layout_toStartOf="@+id/Delete"
+        android:gravity="center_vertical"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:focusable="false"
+        android:text="DEL" />
+
+</RelativeLayout>

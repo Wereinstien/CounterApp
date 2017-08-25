@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.amarnathparthiban.counter.CounterActivity">
+
+    <RelativeLayout
+        android:id="@+id/ButtonLayout"
+        android:layout_width="375dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="5dp"
+        android:paddingEnd="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingStart="15dp">
+
+        <Button
+            android:id="@+id/Clicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/clicker_button"
+            android:text="Click Here!" />
+
+        <Button
+            android:id="@+id/New"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignTop="@+id/Clicker"
+            android:layout_toLeftOf="@+id/Clicker"
+            android:layout_toStartOf="@+id/Clicker"
+            android:background="@drawable/small_button"
+            android:text="New" />
+
+        <Button
+            android:id="@+id/Incrementer"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignTop="@+id/Clicker"
+            android:layout_toEndOf="@+id/Clicker"
+            android:layout_toRightOf="@+id/Clicker"
+            android:background="@drawable/small_button"
+            android:text="+1" />
+
+        <Button
+            android:id="@+id/Clear"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/Clicker"
+            android:layout_toLeftOf="@+id/Clicker"
+            android:layout_toStartOf="@+id/Clicker"
+            android:background="@drawable/small_button"
+            android:text="CLR" />
+
+        <EditText
+            android:id="@+id/Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/Clicker"
+            android:layout_centerHorizontal="true"
+            android:inputType="text"
+            android:maxLines="1"
+            android:text="Count 1" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/List"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/ButtonLayout"
+        android:layout_toRightOf="@+id/ButtonLayout"
+        android:headerDividersEnabled="false" />
+
+</RelativeLayout>
