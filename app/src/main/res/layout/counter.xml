@@ -15,7 +15,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:paddingBottom="20dp">
+        android:paddingBottom="20dp"
+        >
 
         <Button
             android:id="@+id/Clicker"
@@ -25,7 +26,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="87dp"
             android:background="@drawable/clicker_button"
-            android:text="Click Here!" />
+            android:text="@string/LaunchText" />
 
         <Button
             android:id="@+id/New"
@@ -35,7 +36,7 @@
             android:layout_toLeftOf="@+id/Clicker"
             android:layout_toStartOf="@+id/Clicker"
             android:background="@drawable/small_button"
-            android:text="New" />
+            android:text="@string/New" />
 
         <Button
             android:id="@+id/Incrementer"
@@ -45,7 +46,7 @@
             android:layout_toEndOf="@+id/Clicker"
             android:layout_toRightOf="@+id/Clicker"
             android:background="@drawable/small_button"
-            android:text="+1" />
+            android:text="@string/InitialIncrement" />
 
         <Button
             android:id="@+id/Clear"
@@ -55,7 +56,7 @@
             android:layout_toLeftOf="@+id/Clicker"
             android:layout_toStartOf="@+id/Clicker"
             android:background="@drawable/small_button"
-            android:text="CLR" />
+            android:text="@string/CLR" />
 
         <EditText
             android:id="@+id/Name"
@@ -66,7 +67,7 @@
             android:imeOptions="actionDone"
             android:inputType="text"
             android:maxLines="1"
-            android:text="Count 1" />
+            android:text="@string/InitialName" />
 
     </RelativeLayout>
 

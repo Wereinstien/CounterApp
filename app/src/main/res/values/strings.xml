@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Counter</string>
+    <string name="CLR">CLR</string>
+    <string name="LaunchText">Click Here!</string>
+    <string name="InitialIncrement">+1</string>
+    <string name="InitialName">Count 1</string>
+    <string name="New">New</string>
 </resources>
