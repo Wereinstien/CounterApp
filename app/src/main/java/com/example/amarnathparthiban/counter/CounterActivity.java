@@ -3,9 +3,11 @@ package com.example.amarnathparthiban.counter;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -36,13 +38,16 @@ public class CounterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.counter);
 
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
+
         //prevents keyboard from adjusting layout
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
 
         //setup on initial startup
         if (savedInstanceState == null) {
 
-            list_names.add("Count 1");
+            list_names.add(getString(R.string.InitialName));
             list_counts.add(0);
 
         }
@@ -50,7 +55,7 @@ public class CounterActivity extends AppCompatActivity {
         name = (EditText) findViewById(R.id.Name);
 
         //setup Clicker button and incrementer button
-        ((Button) findViewById(R.id.Clicker)).setText(String.valueOf(list_counts.get(curr_pos)));
+        //((Button) findViewById(R.id.Clicker)).setText(String.valueOf(list_counts.get(curr_pos)));
         ((Button) findViewById(R.id.Incrementer))
                 .setText(increment_sign + String.valueOf(increment_values[increment]));
 
@@ -177,22 +182,13 @@ public class CounterActivity extends AppCompatActivity {
             }
         });
 
+        //setup full clear
         clear.setOnLongClickListener(new View.OnLongClickListener() {
 
             @Override
             public boolean onLongClick(View v) {
 
-                list_names.clear();
-                list_counts.clear();
-                list_names.add("Count 1");
-                list_counts.add(0);
-                curr_pos = 0;
-
-                name.setText(list_names.get(curr_pos));
-                ((Button) findViewById(R.id.Clicker))
-                        .setText(String.valueOf(list_counts.get(curr_pos)));
-
-                adapter.notifyDataSetChanged();
+                full_clear();
 
                 return true;
 
@@ -206,7 +202,15 @@ public class CounterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String new_name = "Count " + (list_names.size() + 1);
+                String new_name;
+                int entry_number = 0;
+
+                do {
+
+                    entry_number++;
+                    new_name = "Count " + (entry_number);
+
+                } while (list_names.contains(new_name));
 
                 list_names.add(new_name);
                 list_counts.add(0);
@@ -242,6 +246,30 @@ public class CounterActivity extends AppCompatActivity {
         });
 
     }
+
+    public void full_clear() {
+
+        list_names.clear();
+        list_counts.clear();
+        list_names.add(getString(R.string.InitialName));
+        list_counts.add(0);
+        curr_pos = 0;
+
+        name.setText(list_names.get(curr_pos));
+        ((Button) findViewById(R.id.Clicker))
+                .setText(String.valueOf(list_counts.get(curr_pos)));
+
+        adapter.notifyDataSetChanged();
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
 
     /*
     private void list_remove(int position) {
@@ -313,9 +341,7 @@ public class CounterActivity extends AppCompatActivity {
 
                     if (curr_pos < 0) {
 
-                        list_names.add(((EditText) findViewById(R.id.Name)).getText().toString());
-                        list_counts.add(0);
-                        curr_pos = 0;
+                        full_clear();
 
                     }
 
